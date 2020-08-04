@@ -14,6 +14,6 @@ public class DynamicCamera : MonoBehaviour
         Vector3 Pos1 = GhostCat.position + offset;
         Vector3 Pos2 = Vector3.Lerp(transform.position, Pos1, SmoothSpeed);
         transform.position = Pos2;
-        transform.LookAt(GhostCat);
+
     }
 }
