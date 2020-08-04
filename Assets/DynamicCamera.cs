@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DynamicCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform GhostCat;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private float SmoothSpeed;
+    public Vector3 offset;
+    void FixedUpdate()
     {
-        
+        Vector3 Pos1 = GhostCat.position + offset;
+        Vector3 Pos2 = Vector3.Lerp(transform.position, Pos1, SmoothSpeed);
+        transform.position = Pos2;
+        transform.LookAt(GhostCat);
     }
 }
