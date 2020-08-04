@@ -16,7 +16,7 @@ public class Rotation1 : MonoBehaviour
     {
         Vector3 offset = new Vector3(0f, height, 0f);
         transform.position = Body.transform.position + offset;
-        var Direction = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical"));
+        var Direction = new Vector3(-Input.GetAxis("Horizontal"), -10, -Input.GetAxis("Vertical"));
         transform.rotation = Quaternion.LookRotation(Direction);
     }
 }
