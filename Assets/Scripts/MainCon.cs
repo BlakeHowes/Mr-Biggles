@@ -28,14 +28,14 @@ public class MainCon : MonoBehaviour
 
     void FixedUpdate()
     {
-        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        targetVelocity *= Speed;
-        var velocity = rb.velocity;
-        var velocityChange = (targetVelocity - velocity);
-        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-        velocityChange.y = 0;
-        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Move();
+        }
+        else
+        {
+            transform.forward = Vector3.back;
+        }
     }
 
     private void Meow()
@@ -49,5 +49,20 @@ public class MainCon : MonoBehaviour
                 Lamp.GetComponent<LampCon>().ToggleLight(TurnOn);
             }
         }
+    }
+
+    private void Move()
+    {
+        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Speed;
+        var velocityChange = (targetVelocity - rb.velocity);
+
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        transform.forward = targetVelocity.normalized;
+
+        transform.GetChild(1).transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical"))) * 30, 0, 0));
     }
 }

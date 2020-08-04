@@ -660,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 85124562873670291, guid: 240c210a67b71144bb331ab93670e572,
         type: 3}
       propertyPath: m_Name
-      value: GhostPrefab 1
+      value: GhostCat_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7754714906677427419, guid: 240c210a67b71144bb331ab93670e572,
         type: 3}
