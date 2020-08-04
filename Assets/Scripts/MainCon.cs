@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MainCon : MonoBehaviour
 {
@@ -11,18 +12,38 @@ public class MainCon : MonoBehaviour
     [SerializeField]
     private float radius;
 
-
+    private AudioSource CatSounds;
+    [SerializeField]
+    private AudioClip CatMeow1;
     private Rigidbody rb;
+    private bool Zrelease;
+    private float KeyTimer;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        CatSounds = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) && Zrelease == true)
         {
             Meow();
+            Zrelease = false;
+        }
+
+        if (!Input.GetKey(KeyCode.Z))
+        {
+            if(Zrelease == false)
+            {
+                KeyTimer += Time.deltaTime;
+            }
+
+            if(KeyTimer > 1)
+            {
+                Zrelease = true;
+                KeyTimer = 0f;
+            }
         }
     }
 
@@ -41,6 +62,8 @@ public class MainCon : MonoBehaviour
 
     private void Meow()
     {
+        CatSounds.PlayOneShot(CatMeow1);
+
         Collider[] NearbyLamps = Physics.OverlapSphere(transform.position, radius);
         foreach (var Lamp in NearbyLamps)
         {
