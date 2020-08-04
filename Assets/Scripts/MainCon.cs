@@ -35,6 +35,7 @@ public class MainCon : MonoBehaviour
         else
         {
             transform.forward = Vector3.back;
+            rb.velocity = Vector3.zero;
         }
     }
 
