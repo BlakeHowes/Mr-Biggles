@@ -13,7 +13,11 @@ public class StartingScript : MonoBehaviour
     void Start()
     {
         Color theColorToAdjust = Shroud.material.color;
-        alpha = 1;
+        alpha = 1f;
+
+        theColorToAdjust.a = alpha;
+        Shroud.material.color = theColorToAdjust;
+        Shroud2.material.color = theColorToAdjust;
     }
 
     void FixedUpdate()
@@ -21,6 +25,9 @@ public class StartingScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Fade = true;
+
+
+
         }
     
         if(Fade == true)
