@@ -116,6 +116,7 @@ MonoBehaviour:
   Speed: 1.8
   maxVelocityChange: 1.8
   radius: 0
+  CatMeow1: {fileID: 0}
 --- !u!54 &5669018986841358274
 Rigidbody:
   m_ObjectHideFlags: 0
