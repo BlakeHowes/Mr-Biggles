@@ -40,6 +40,7 @@ public class VoiceModulator : MonoBehaviour
         Speaker = GetComponent<AudioSource>();
         Speaker.pitch = pitch;
         WordClumpingTemp = WordClumping;
+        Speaker.volume = 0.5f;
     }
 
     public void Update()

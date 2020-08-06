@@ -10,6 +10,7 @@ public class StartingScript : MonoBehaviour
     public Renderer Shroud2;
     private Color theColorToAdjust;
     public float alpha;
+    public GameObject Dialogue;
     void Start()
     {
         Color theColorToAdjust = Shroud.material.color;
@@ -25,9 +26,7 @@ public class StartingScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Fade = true;
-
-
-
+            Dialogue.GetComponent<Dialogue>().Begin = true;
         }
     
         if(Fade == true)

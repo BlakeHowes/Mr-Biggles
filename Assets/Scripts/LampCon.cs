@@ -17,7 +17,7 @@ public class LampCon : MonoBehaviour
     [SerializeField]
     private Material OnMaterial;
     private bool Action;
-    public List<GameObject> NPCs = new List<GameObject>();
+    public GameObject LocationMan;
     [SerializeField]
     private GameObject GhostCat;
 
@@ -47,11 +47,9 @@ public class LampCon : MonoBehaviour
 
             if (Action == false)
             {
-                foreach (GameObject NPC in NPCs)
-                {
-                    NPC.GetComponent<NPCCon>().MoveToNextLocation();
-                    GhostCat.GetComponent<EmoManager>().Happy();
-                }
+               
+                    LocationMan.GetComponent<LocationMan>().NextLocationMan();
+             
                 Action = true;
             }
         }
