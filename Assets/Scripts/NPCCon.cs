@@ -11,10 +11,12 @@ public class NPCCon : MonoBehaviour
     private Vector3 Offset;
     [SerializeField]
     private NavMeshAgent agent;
+    public Camera Maincam;
     private State MyState;
     [SerializeField]
     private int i = 0;
     private int PathIndex;
+    private bool toggle;
     void Awake()
     {
         PathIndex = 0;
@@ -36,6 +38,17 @@ public class NPCCon : MonoBehaviour
             case State.IDLE:
                 Idle();
                 break;
+        }
+
+        if(transform.position.x > 53)
+        {
+            if(toggle == false)
+            {
+                Maincam.GetComponent<DynamicCamera>().StartCutScene();
+                toggle = true;
+                MoveToNextLocation();
+            }
+
         }
     }
 

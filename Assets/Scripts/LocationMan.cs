@@ -22,9 +22,4 @@ public class LocationMan : MonoBehaviour
             index += 1;
         }
     }
-
-    void Update()
-    {
-        
-    }
 }
