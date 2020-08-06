@@ -12,11 +12,12 @@ public class NPCCon : MonoBehaviour
     [SerializeField]
     private NavMeshAgent agent;
     public Camera Maincam;
-    private State MyState;
+    private State MyState = State.IDLE;
     [SerializeField]
     private int i = 0;
     private int PathIndex;
     private bool toggle;
+    private float timer3;
     void Awake()
     {
         PathIndex = 0;
@@ -60,10 +61,11 @@ public class NPCCon : MonoBehaviour
 
     private void Walk()
     {
-
+   
     }
 
     private void Idle()
     {
+
     }
 }

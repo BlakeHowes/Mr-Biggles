@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DynamicCamera : MonoBehaviour
 {
@@ -69,6 +70,13 @@ public class DynamicCamera : MonoBehaviour
                     MainNPC.GetComponent<NPCCon>().MoveToNextLocation();
 
                     toggle2 = true;
+                }
+                if(toggle2 == true)
+                {
+                    if(timer2 > 20)
+                    {
+                        SceneManager.LoadScene("MainMenu");
+                    }
                 }
             }
         }
