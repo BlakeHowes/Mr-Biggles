@@ -6,13 +6,18 @@ using UnityEngine.AI;
 public class NPCCon : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> Locations = new List<GameObject>();
+    public List<GameObject> Locations = new List<GameObject>();
+    [SerializeField]
+    private Vector3 Offset;
+    [SerializeField]
     private NavMeshAgent agent;
     private State MyState;
+    [SerializeField]
+    private int i = 0;
+    private int PathIndex;
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(Locations[0].transform.position);
+        PathIndex = 0;
     }
 
     public enum State
@@ -34,6 +39,12 @@ public class NPCCon : MonoBehaviour
         }
     }
 
+    public void MoveToNextLocation()
+    {
+        agent.SetDestination(Locations[PathIndex].transform.position + Offset);
+        PathIndex += 1;
+    }
+
     private void Walk()
     {
 
@@ -41,6 +52,5 @@ public class NPCCon : MonoBehaviour
 
     private void Idle()
     {
-
     }
 }

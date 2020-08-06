@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 5048295758528590383}
   - component: {fileID: 5048295758528590384}
   - component: {fileID: 5048295758528590385}
+  - component: {fileID: 9003755481941736195}
   m_Layer: 0
   m_Name: lamp (1)
   m_TagString: Lamp
@@ -394,6 +395,8 @@ MonoBehaviour:
   Glass: {fileID: 5048295758378474702}
   OffMaterial: {fileID: 2100000, guid: 28375a8ced27e0d47bf2800c9496de72, type: 2}
   OnMaterial: {fileID: 2100000, guid: 811c22cf005d2784fbce04148ee767f4, type: 2}
+  NPCs:
+  - {fileID: 4792950260228865836, guid: 3bd0c44e2de6649499526753dacf5e80, type: 3}
 --- !u!135 &5048295758528590385
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -407,6 +410,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 10.22, z: 0}
+--- !u!208 &9003755481941736195
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048295758528590386}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5048295758759943634
 GameObject:
   m_ObjectHideFlags: 0

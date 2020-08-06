@@ -16,7 +16,8 @@ public class LampCon : MonoBehaviour
     private Material OffMaterial;
     [SerializeField]
     private Material OnMaterial;
-
+    private bool Action;
+    public List<GameObject> NPCs = new List<GameObject>();
     private void Awake()
     {
         Spotlight.enabled = false;
@@ -33,6 +34,15 @@ public class LampCon : MonoBehaviour
             PointLight.enabled = true;
             Halo.enabled = true;
             Glass.material = OnMaterial;
+
+            if (Action == false)
+            {
+                foreach (GameObject NPC in NPCs)
+                {
+                    NPC.GetComponent<NPCCon>().MoveToNextLocation();
+                }
+                Action = true;
+            }
         }
 
         if (OnOff == false)
