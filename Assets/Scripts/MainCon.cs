@@ -27,13 +27,13 @@ public class MainCon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Z) && Zrelease == true)
+        if (Input.GetKey(KeyCode.X) && Zrelease == true)
         {
             Meow();
             Zrelease = false;
         }
 
-        if (!Input.GetKey(KeyCode.Z))
+        if (!Input.GetKey(KeyCode.X))
         {
             if(Zrelease == false)
             {

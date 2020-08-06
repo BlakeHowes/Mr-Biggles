@@ -13,7 +13,7 @@ public class WallDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.X))
         {
             Destroy(gameObject);
         }

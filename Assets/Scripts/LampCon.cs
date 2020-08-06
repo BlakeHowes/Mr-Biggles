@@ -72,6 +72,7 @@ public class LampCon : MonoBehaviour
         {
             Halo.enabled = false;
         }
+
         FireFlys.material = Offfly;
         if(on == true)
         {
