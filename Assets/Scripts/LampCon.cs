@@ -18,6 +18,16 @@ public class LampCon : MonoBehaviour
     private Material OnMaterial;
     private bool Action;
     public List<GameObject> NPCs = new List<GameObject>();
+    [SerializeField]
+    private GameObject GhostCat;
+
+    [SerializeField]
+    private Material Offfly;
+    [SerializeField]
+    private Material OnFly;
+    [SerializeField]
+    private Renderer FireFlys;
+    private bool temp;
     private void Awake()
     {
         Spotlight.enabled = false;
@@ -40,6 +50,7 @@ public class LampCon : MonoBehaviour
                 foreach (GameObject NPC in NPCs)
                 {
                     NPC.GetComponent<NPCCon>().MoveToNextLocation();
+                    GhostCat.GetComponent<EmoManager>().Happy();
                 }
                 Action = true;
             }
@@ -51,6 +62,21 @@ public class LampCon : MonoBehaviour
             PointLight.enabled = false;
             Halo.enabled = false;
             Glass.material = OffMaterial;
+        }
+        temp = OnOff;
+    }
+
+    public void Glow(bool on)
+    {
+        if(temp == false)
+        {
+            Halo.enabled = false;
+        }
+        FireFlys.material = Offfly;
+        if(on == true)
+        {
+            FireFlys.material = OnFly;
+            Halo.enabled = true;
         }
     }
 }

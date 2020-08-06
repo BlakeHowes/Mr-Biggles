@@ -18,6 +18,7 @@ public class MainCon : MonoBehaviour
     private Rigidbody rb;
     private bool Zrelease;
     private float KeyTimer;
+    private float timer;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,6 +46,12 @@ public class MainCon : MonoBehaviour
                 KeyTimer = 0f;
             }
         }
+        timer += Time.deltaTime;
+        if(timer > 0.1)
+        {
+            timer = 0;
+            CheckForLamps();
+        }
     }
 
     void FixedUpdate()
@@ -60,10 +67,23 @@ public class MainCon : MonoBehaviour
         }
     }
 
+    private void CheckForLamps()
+    {
+        Collider[] NearbyLamps = Physics.OverlapSphere(transform.position, radius);
+        foreach (var Lamp in NearbyLamps)
+        {
+            if (Lamp.gameObject.tag == "Lamp")
+            {
+                bool on = true;
+                Lamp.GetComponent<LampCon>().Glow(on);
+            }
+        }
+    }
+
     private void Meow()
     {
         CatSounds.PlayOneShot(CatMeow1);
-
+        GetComponent<EmoManager>().StartTalking();
         Collider[] NearbyLamps = Physics.OverlapSphere(transform.position, radius);
         foreach (var Lamp in NearbyLamps)
         {

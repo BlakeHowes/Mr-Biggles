@@ -11,12 +11,15 @@ public class EmoManager : MonoBehaviour
     public Texture idleTexture;
     public Texture idleTalkingTexture;
 
+    private float timer;
+    private bool meow;
+    private float timer2;
+    private bool happy;
     [SerializeField]
     private Material mat;
 
     void Start()
     {
-
 
     }
 
@@ -36,5 +39,39 @@ public class EmoManager : MonoBehaviour
                 break;
 
         }
+
+        if(meow == true)
+        {
+            currentEmotion = Emotion.IdleTalking;
+            timer += Time.deltaTime;
+            if (timer > 1)
+            {
+                currentEmotion = Emotion.Idle;
+                meow = false;
+                timer = 0f;
+            }
+        }
+
+        if (happy == true)
+        {
+            currentEmotion = Emotion.Happy;
+            timer2 += Time.deltaTime;
+            if (timer2 > 4)
+            {
+                currentEmotion = Emotion.Idle;
+                happy = false;
+                timer2 = 0f;
+            }
+        }
+    }
+
+    public void StartTalking()
+    {
+        meow = true;
+    }
+
+    public void Happy()
+    {
+        happy = true;
     }
 }
