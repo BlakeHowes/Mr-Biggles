@@ -272,6 +272,7 @@ MonoBehaviour:
   - {fileID: 0}
   Offset: {x: 0, y: 0, z: 0}
   agent: {fileID: 4792950260228865837}
+  Maincam: {fileID: 0}
   i: 0
 --- !u!33 &4792950260228865832
 MeshFilter:
@@ -288,7 +289,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4792950260228865836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
