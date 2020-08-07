@@ -85,7 +85,7 @@ public class DynamicCamera : MonoBehaviour
     public void StartCutScene()
     {
         NotInCutScene = false;
-        Vector3 pos3 = new Vector3(56.23f, 0.4f, 51.04f);
+        Vector3 pos3 = new Vector3(54.37f, 0.94f, 51.93f);
         Quaternion rot = Quaternion.Euler(25.142f, 135.784f, 0);
         transform.position = pos3;
         transform.rotation = rot;

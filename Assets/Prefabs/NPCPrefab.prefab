@@ -272,8 +272,14 @@ MonoBehaviour:
   - {fileID: 0}
   Offset: {x: 0, y: 0, z: 0}
   agent: {fileID: 4792950260228865837}
+  DialogueCon: {fileID: 0}
   Maincam: {fileID: 0}
   i: 0
+  rotateSpeed: 0
+  timer2: 0
+  Candy1: {fileID: 0}
+  Candy2: {fileID: 0}
+  Candy3: {fileID: 0}
 --- !u!33 &4792950260228865832
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -529,7 +535,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Its So Dark...
+  m_Text: 
 --- !u!114 &6244915078858858824
 MonoBehaviour:
   m_ObjectHideFlags: 0
